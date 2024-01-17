@@ -1,0 +1,15 @@
+.skill-items {
+  margin: 10px 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.skill-items .skill-item {
+  background-color: #787d8f;
+  padding: 7px 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
