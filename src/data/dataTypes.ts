@@ -1,5 +1,14 @@
 import { IconType } from "react-icons";
 
+export type TUser = "akjn" | "kej";
+export type TTemplate = "modern" | "ats";
+
+const tmplt = ["modern", "ats"] as any;
+const usr = ["akjn", "kej"] as any;
+
+export const activeUser: TUser = usr[1];
+export const template: TTemplate = tmplt[0];
+
 export type THeaderType = {
   name: string;
   title: string;
@@ -11,6 +20,8 @@ export type TContentData = {
   value: string;
   display: boolean;
   Icon?: IconType | string | null | undefined;
+  start?: string;
+  end?: string;
 };
 
 export type TExperienceItem = {

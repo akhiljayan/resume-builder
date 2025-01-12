@@ -1,7 +1,19 @@
 import { TProjectItem, TContentData } from "../data/dataTypes";
 import "./Project.css";
 
-const Project = ({ data }: { data: TProjectItem[] }) => {
+interface IProjectProps {
+  data: TProjectItem[];
+  hideTitle?: boolean;
+  title?: string;
+  isFullWidth?: boolean;
+}
+
+const Project = ({
+  data,
+  hideTitle = false,
+  title = "Major Projects",
+  isFullWidth = false,
+}: IProjectProps) => {
   const filtredData = data
     .filter((i) => i.display)
     .sort((a, b) => a.order - b.order);
@@ -30,7 +42,10 @@ const Project = ({ data }: { data: TProjectItem[] }) => {
     ));
   };
 
-  const renderColumnContent = (i: TProjectItem) => {
+  const renderColumnContent = (i: TProjectItem | string) => {
+    if (typeof i === "string") {
+      return <div key="EmptyVal" className="project-item"></div>;
+    }
     const skillsVal = i.skills.filter((s) => s.display).map((s) => s.value);
     return (
       <div key={i.title} className="project-item">
@@ -39,7 +54,8 @@ const Project = ({ data }: { data: TProjectItem[] }) => {
           <span>{`${i.start} - ${i.end}`}</span>
         </div>
         <div className="proj-description">{i.description}</div>
-        <ul className="proj-tasks custom-bullet">
+        {/* Add `custom-bullet` className for changing bullet style */}
+        <ul className="proj-tasks">
           {i.tasks.map((j: TContentData) => {
             if (!j.display) return false;
             return <li key={j.value}>{j.value}</li>;
@@ -56,17 +72,25 @@ const Project = ({ data }: { data: TProjectItem[] }) => {
 
   const renderRows = (projs: TProjectItem[], index: number) => {
     return (
-      <div key={`proj_${index}`} className="proj-item-row">
+      <div key={`proj_${index}`} className={isFullWidth ? "" : "proj-item-row"}>
         {projs.map((i) => renderColumnContent(i))}
       </div>
     );
   };
 
+  const projItems = items.reduce((r: any, i: TProjectItem[]) => {
+    if (i.length === 2) {
+      return [...r, i];
+    } else {
+      return [...r, [...i, "EMPTY_VAL"]];
+    }
+  }, []);
+
   return (
     <div className="content-container boundary">
-      <div className="content-title">Major Projects</div>
+      {!hideTitle && <div className="content-title">{title}</div>}
       <div className="project-container">
-        {items.map((i, index) => renderRows(i, index))}
+        {projItems.map((i, index) => renderRows(i, index))}
       </div>
     </div>
   );

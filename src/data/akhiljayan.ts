@@ -162,7 +162,7 @@ const getPointValues = (
 const headerData: THeaderType = {
   name: "Akhil Jayan",
   title: "Full-stack Developer",
-  description: `Experienced full-stack developer with 7.5 years of expertise across diverse technology stacks, specializing in web applications. Proficient in multiple languages and frameworks, bringing a proven track 
+  description: `Experienced full-stack developer with 8.5 years of expertise across diverse technology stacks, specializing in web applications. Proficient in multiple languages and frameworks, bringing a proven track 
     record of delivering robust solutions on both the front and back ends. Thriving in dynamic environments, 
     strong analytical and problem-solving skills are showcased, with a commitment to staying current with industry 
     trends for future projects.`,
@@ -378,6 +378,8 @@ const projectsData: TProjectItem[] = [
   },
 ];
 
+const freelanceData: TProjectItem[] = [];
+
 const educationData: TEducationItem[] = [
   {
     degree: "Post Graduate Diploma",
@@ -425,6 +427,7 @@ export default {
   projectsData,
   educationData,
   contributionData,
+  freelanceData,
 };
 
 // Below are my tasks/achievements in KPMG that i put in my resume

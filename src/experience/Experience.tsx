@@ -1,16 +1,34 @@
-import { TExperienceItem, TContentData } from "../data/dataTypes";
+import classNames from "classnames";
+import { TExperienceItem, TContentData, TTemplate } from "../data/dataTypes";
 import "./Experience.css";
 
-const Experience = ({ data }: { data: TExperienceItem[] }) => {
+interface IExperienceProps {
+  data: TExperienceItem[];
+  template: TTemplate;
+  title?: string;
+}
+
+const Experience = ({
+  data,
+  template,
+  title = "Professional Experience",
+}: IExperienceProps) => {
+  const isAts = template === "ats";
+  const titleClass = isAts ? "content-title-ats" : "content-title";
+  const headingClass = classNames(isAts ? "exp-title-ats" : "exp-title");
+  const contentClass = classNames(
+    isAts ? "content-container-ats" : "content-container",
+    "boundary"
+  );
   return (
-    <div className="content-container boundary">
-      <div className="content-title">Professional Experience</div>
-      <div className="experience-container">
+    <div className={contentClass}>
+      <div className={titleClass}>{title}</div>
+      <div className={classNames(!isAts && "experience-container")}>
         {data.map((i: TExperienceItem) => {
           if (!i.display) return false;
           return (
             <div key={i.company} className="experience-item">
-              <div className="exp-title">{i.title}</div>
+              <div className={headingClass}>{i.title}</div>
               <div className="exp-company">{`${i.company}, ${i.location}`}</div>
               <div className="exp-duration-location">
                 <span>{`${i.start} - ${i.end}`}</span>

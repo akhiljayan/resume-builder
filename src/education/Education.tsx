@@ -1,10 +1,16 @@
-import { TEducationItem } from "../data/dataTypes";
+import { TEducationItem, TTemplate } from "../data/dataTypes";
 import "./Education.css";
 
-const Education = ({ data }: { data: TEducationItem[] }) => {
+interface IEducationProps {
+  data: TEducationItem[];
+  template: TTemplate;
+}
+
+const Education = ({ data, template }: IEducationProps) => {
+  const titleCss = template === "ats" ? "content-title-ats" : "content-title";
   return (
     <div className="content-container boundary main-exp-container">
-      <div className="content-title">Education</div>
+      <div className={titleCss}>Education</div>
       <div className="education-container">
         {data.map((i: TEducationItem) => {
           if (!i.display) return false;
