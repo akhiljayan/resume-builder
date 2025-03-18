@@ -1,0 +1,115 @@
+.project-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  /* gap: 10px; */
+  gap: 0px;
+}
+
+.proj-item-row {
+  display: flex;
+  gap: 15px;
+}
+
+.project-item {
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.colunm-item {
+  flex: 1;
+  display: "flex";
+  flex-direction: "column";
+}
+
+.proj-title {
+  font-size: 16px;
+}
+
+.proj-description {
+  font-size: 12px;
+  padding: 12px 0;
+  font-style: italic;
+}
+
+.proj-duration {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.proj-duration span,
+.muted-text {
+  color: #787d8f;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.proj-skills {
+  font-size: 12px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-pill {
+  padding: 2px 7px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+.skill-text {
+  font-weight: bold;
+}
+
+.skill-container {
+  padding: 10px 0 0;
+}
+
+.skill-heading {
+  color: #787d8f;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.proj-title-ats {
+  font-size: 18px;
+}
+
+.proj-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.proj-duration-location {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  line-height: 1.8;
+}
+
+.proj-duration-location span,
+.muted-text {
+  font-size: 12px;
+  font-style: italic;
+}
+
+.proj-loc-mdn {
+  color: #787d8f;
+}
+
+.proj-tasks {
+  margin: 0;
+  padding-left: 12px;
+}
+
+.proj-tasks li {
+  font-size: 12px;
+}
+
+.bold-item {
+  font-weight: bold;
+}

@@ -1,0 +1,13 @@
+.contribution-container {
+  margin-top: 10px;
+}
+
+.cont-tasks {
+  margin: 0;
+  padding-left: 12px;
+  line-height: 1.5;
+}
+
+.cont-tasks li {
+  font-size: 12px;
+}

@@ -1,0 +1,32 @@
+.card-container {
+  background-color: #121212;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.card-header {
+  font-size: 24px;
+  color: #ffff;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.header-border {
+  border-bottom: 0.1px solid #737373;
+}
+
+.card-content {
+  padding: 15px;
+  color: #ffff;
+}
+
+.card-footer {
+  color: #ffff;
+  padding: 15px;
+  cursor: pointer;
+  border-top: 0.1px solid #737373;
+  display: flex;
+  justify-content: flex-end;
+}

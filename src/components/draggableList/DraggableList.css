@@ -1,0 +1,51 @@
+.vertical-item-parent {
+  flex-direction: column;
+}
+
+.horizontal-item-parent {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.parent-div {
+  display: flex;
+  gap: 12px;
+}
+
+.drag-item {
+  border: 0.5px solid #ffffffd2;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.drag-pointer {
+  cursor: pointer;
+}
+
+.flex-pointer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.vertical-item {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.horizontal-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.remove-button {
+  padding: 0px 5px;
+  border-radius: 3px;
+  background-color: gray;
+}
