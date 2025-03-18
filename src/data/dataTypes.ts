@@ -1,4 +1,11 @@
 import { IconType } from "react-icons";
+import {
+  FaMobileScreen,
+  FaEnvelopeCircleCheck,
+  FaLinkedin,
+  FaGithub,
+  FaLocationDot,
+} from "react-icons/fa6";
 
 export type TUser = "akjn" | "kej";
 export type TTemplate = "modern" | "ats";
@@ -6,22 +13,35 @@ export type TTemplate = "modern" | "ats";
 const tmplt = ["modern", "ats"] as any;
 const usr = ["akjn", "kej"] as any;
 
-export const activeUser: TUser = usr[1];
-export const template: TTemplate = tmplt[0];
+export const activeUser: TUser = process?.env?.USER || usr[0];
+export const template: TTemplate = process?.env?.TYPE || tmplt[0];
 
 export type THeaderType = {
   name: string;
   title: string;
   description: string;
+  location: string;
+  email: string;
+  phone: string;
+  linkedin: string;
+  github: string;
 };
 
 export type TContentData = {
   key?: string | null | undefined;
   value: string;
-  display: boolean;
+  active: boolean;
   Icon?: IconType | string | null | undefined;
   start?: string;
   end?: string;
+};
+
+export type TMainContact = {
+  email: string;
+  phone: string;
+  location: string;
+  linkedin: string;
+  github: string;
 };
 
 export type TExperienceItem = {
@@ -30,18 +50,21 @@ export type TExperienceItem = {
   start: string;
   end: string;
   location: string;
-  tasks: TContentData[];
-  display: boolean;
+  tasks: string[];
+  active: boolean;
 };
 
 export type TProjectItem = {
   title: string;
-  description: string;
+  description?: string;
   start: string;
   end: string;
-  tasks: TContentData[];
-  skills: TContentData[];
-  display: boolean;
+  tasks?: TContentData[];
+  tech?: string[];
+  role?: string[];
+  skills?: TContentData[];
+  display?: boolean;
+  active?: boolean;
   order: number;
 };
 
@@ -53,5 +76,14 @@ export type TEducationItem = {
   end: string;
   grade: string;
   mode: string;
-  display: boolean;
+  display?: boolean;
+  active?: boolean;
+};
+
+export const icons: { [k: string]: IconType } = {
+  email: FaEnvelopeCircleCheck,
+  phone: FaMobileScreen,
+  location: FaLocationDot,
+  linkedin: FaLinkedin,
+  github: FaGithub,
 };
